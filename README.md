@@ -3,8 +3,8 @@
 PRoot build scripts for Android. They produce PRoot statically linked with libtalloc, with unbundled loader and freely relocatable in file tree.
 
 Usage:
-- Unpack <somewhere>
-- Run as <somewhere>/root/bin/proot
+- Unpack \<somewhere\>
+- Run as \<somewhere\>/root/bin/proot
 - ???
 - Profit
 
