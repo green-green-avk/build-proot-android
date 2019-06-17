@@ -1,0 +1,32 @@
+PROOT_V='0.1_release'
+TALLOC_V='2.1.14'
+
+ARCHS='aarch64 armv7a x86_64 i686'
+
+BASE_DIR="$PWD"
+
+BUILD_DIR="$BASE_DIR/build"
+mkdir -p "$BUILD_DIR"
+
+PKG_DIR="$BASE_DIR/packages"
+mkdir -p "$PKG_DIR"
+
+NDK="$HOME/Android/Sdk/ndk-bundle"
+TOOLCHAIN="$NDK/toolchains/llvm/prebuilt/linux-$(uname -m)"
+
+set-arch() {
+	ARCH="$1"
+
+	INSTALL_ROOT="$BUILD_DIR/root-$ARCH/root"
+	STATIC_ROOT="$BUILD_DIR/static-$ARCH/root"
+
+	export AR="$TOOLCHAIN/bin/$ARCH-linux-android-ar"
+	export AS="$TOOLCHAIN/bin/$ARCH-linux-android-as"
+	export CC="$(echo $TOOLCHAIN/bin/$ARCH-linux-android*21-clang)"
+	export CXX="$(echo $TOOLCHAIN/bin/$ARCH-linux-android*21-clang++)"
+	export LD="$TOOLCHAIN/bin/$ARCH-linux-android-ld"
+	export RANLIB="$TOOLCHAIN/bin/$ARCH-linux-android-ranlib"
+	export STRIP="$TOOLCHAIN/bin/$ARCH-linux-android-strip"
+	export OBJCOPY="$TOOLCHAIN/bin/$ARCH-linux-android-objcopy"
+	export OBJDUMP="$TOOLCHAIN/bin/$ARCH-linux-android-objdump"
+}
