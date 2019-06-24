@@ -8,6 +8,8 @@ shopt -s nullglob
 for ARCH in $ARCHS
 do
 
+echo "For $ARCH:"
+
 set-arch $ARCH
 
 tar -czvf "$PKG_DIR/root-proot-android-$ARCH.tar.gz" -C "$INSTALL_ROOT/.." root
