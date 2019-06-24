@@ -12,7 +12,7 @@ do
 
 set-arch $ARCH
 
-make clean || true
+make distclean || true
 
 export CFLAGS="-I$STATIC_ROOT/include -Werror=implicit-function-declaration"
 export LDFLAGS="-L$STATIC_ROOT/lib"

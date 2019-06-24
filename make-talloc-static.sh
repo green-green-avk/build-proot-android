@@ -12,7 +12,7 @@ do
 
 set-arch $ARCH
 
-make clean || true
+make distclean || true
 
 cat <<EOF >cross-answers.txt
 Checking uname sysname type: "Linux"
