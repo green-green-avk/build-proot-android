@@ -4,8 +4,8 @@ PRoot build scripts for Android. They produce PRoot statically linked with libta
 
 Usage:
 - Build or get prebuilt at https://github.com/green-green-avk/build-proot-android/tree/master/packages
-- Unpack `\<somewhere\>`
-- Run as `\<somewhere\>/root/bin/proot`
+- Unpack `<somewhere>`
+- Run as `<somewhere>/root/bin/proot`
 - ???
 - Profit
 
