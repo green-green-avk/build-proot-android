@@ -1,9 +1,9 @@
-PROOT_V='0.2_release'
+PROOT_V='0.3_release'
 TALLOC_V='2.1.14'
 
 # `pre5' is for Android API < 21 where we can't _FILE_OFFSET_BITS=64 at least
 
-ARCHS='aarch64 aarch64-pre5 armv7a armv7a-pre5 x86_64 x86_64-pre5 i686 i686-pre5'
+ARCHS='aarch64 armv7a armv7a-pre5 x86_64 i686 i686-pre5'
 
 BASE_DIR="$PWD"
 
@@ -23,13 +23,18 @@ set-arch() {
 	else SUBARCH=''
 	fi
 
+	if [ "$SUBARCH" == 'pre5' ]
+	then API=16
+	else API=21
+	fi
+
 	INSTALL_ROOT="$BUILD_DIR/root-$ARCH/root"
 	STATIC_ROOT="$BUILD_DIR/static-$ARCH/root"
 
 	export AR="$TOOLCHAIN/bin/$MARCH-linux-android-ar"
 	export AS="$TOOLCHAIN/bin/$MARCH-linux-android-as"
-	export CC="$(echo $TOOLCHAIN/bin/$MARCH-linux-android*21-clang)"
-	export CXX="$(echo $TOOLCHAIN/bin/$MARCH-linux-android*21-clang++)"
+	export CC="$(echo $TOOLCHAIN/bin/$MARCH-linux-android*$API-clang)"
+	export CXX="$(echo $TOOLCHAIN/bin/$MARCH-linux-android*$API-clang++)"
 	export LD="$TOOLCHAIN/bin/$MARCH-linux-android-ld"
 	export RANLIB="$TOOLCHAIN/bin/$MARCH-linux-android-ranlib"
 	export STRIP="$TOOLCHAIN/bin/$MARCH-linux-android-strip"
