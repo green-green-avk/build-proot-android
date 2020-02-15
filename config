@@ -1,4 +1,4 @@
-PROOT_V='0.5_release'
+PROOT_V='0.6_release'
 TALLOC_V='2.1.14'
 
 # `pre5' is for Android API < 21 where we can't _FILE_OFFSET_BITS=64 at least
