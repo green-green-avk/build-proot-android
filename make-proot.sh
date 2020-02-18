@@ -12,8 +12,6 @@ do
 
 set-arch $ARCH
 
-make distclean || true
-
 export CFLAGS="-I$STATIC_ROOT/include -Werror=implicit-function-declaration"
 export LDFLAGS="-L$STATIC_ROOT/lib"
 export PROOT_UNBUNDLE_LOADER='libexec/proot'
@@ -23,6 +21,10 @@ then export ANDROID_PRE5=1
 else unset ANDROID_PRE5
 fi
 
+make distclean || true
 make V=1 "PREFIX=$INSTALL_ROOT" install
+make distclean || true
+CFLAGS="$CFLAGS -DUSERLAND" make V=1 "PREFIX=$INSTALL_ROOT" proot
+cp -a ./proot "$INSTALL_ROOT/bin/proot-userland"
 
 done
