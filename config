@@ -1,4 +1,4 @@
-PROOT_V='0.10_release'
+PROOT_V='0.11_release'
 TALLOC_V='2.1.14'
 
 # `pre5' is for Android API < 21 where we can't _FILE_OFFSET_BITS=64 at least
@@ -13,7 +13,7 @@ mkdir -p "$BUILD_DIR"
 PKG_DIR="$BASE_DIR/packages"
 mkdir -p "$PKG_DIR"
 
-NDK="$HOME/Android/Sdk/ndk/21.3.6528147"
+NDK="$HOME/Android/Sdk/ndk/21.4.7075529"
 TOOLCHAIN="$NDK/toolchains/llvm/prebuilt/linux-$(uname -m)"
 
 set-arch() {
